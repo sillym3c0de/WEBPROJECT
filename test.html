@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CYBER_SENTINEL | Command Navigation Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="terminal-loader">
+        <div class="terminal-header">
+            <div class="terminal-title">INITIALIZING COMMAND_NAVIGATION_SYSTEM...</div>
+            <div class="terminal-controls">
+                <span class="control close"></span>
+                <span class="control minimize"></span>
+                <span class="control maximize"></span>
+            </div>
+        </div>
+        <div class="terminal-body">
+            <div class="loading-text">
+                <span class="green">root@cyber-sentinel:~$</span> sudo init_command_nav --mode=code<br>
+                <span class="cyan">[✓]</span> Loading command parser...<br>
+                <span class="cyan">[✓]</span> Initializing section router...<br>
+                <span class="cyan">[✓]</span> Mounting navigation API...<br>
+                <span class="cyan">[✓]</span> Calibrating transition engine...<br><br>
+                <span class="green">SYSTEM READY</span> Type <span class="yellow">"help"</span> to begin<br>
+                <span class="cyan">>></span> Command navigation system activated
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Command Navigation Interface -->
+    <div class="command-container" style="display: none;">
+        <!-- Terminal Header -->
+        <div class="terminal-header fixed">
+            <div class="terminal-title">COMMAND_NAVIGATION_PORTFOLIO.exe</div>
+            <div class="terminal-controls">
+                <span class="control close" onclick="closeTerminal()"></span>
+                <span class="control minimize" onclick="minimizeTerminal()"></span>
+                <span class="control maximize" onclick="maximizeTerminal()"></span>
+            </div>
+        </div>
+
+        <!-- Main Content Area -->
+        <main class="command-content">
+            <!-- Command History Display -->
+            <div class="command-history" id="commandHistory">
+                <div class="history-entry">
+                    <span class="prompt">$</span>
+                    <span class="command">system_init</span>
+                </div>
+                <div class="history-entry output">
+                    <span class="cyan">Welcome to Cyber Sentinel Portfolio</span>
+                </div>
+                <div class="history-entry output">
+                    <span class="yellow">Type "help" to see available commands</span>
+                </div>
+                <div class="history-entry output">
+                    <span class="cyan">Current section: </span>
+                    <span class="green" id="currentSectionDisplay">HOME</span>
+                </div>
+            </div>
+
+            <!-- Active Section Display -->
+            <div class="active-section" id="activeSection">
+                <!-- Home/Start Section (Initial) -->
+                <section id="home" class="section-content active">
+                    <div class="section-terminal">
+                        <div class="window-header">
+                            <div class="window-title">
+                                <i class="fas fa-home"></i>
+                                HOME_SECTION
+                            </div>
+                            <div class="window-status">
+                                <span class="status-dot green"></span>
+                                <span>ACTIVE</span>
+                            </div>
+                        </div>
+                        <div class="window-body">
+                            <h1 class="welcome-title">
+                                <span class="green">>></span> CYBERSECURITY SENTINEL
+                            </h1>
+                            <div class="welcome-content">
+                                <div class="typewriter-welcome">
+                                    <p class="type-line line-1">
+                                        <span class="green">$</span> whoami
+                                    </p>
+                                    <p class="type-line line-2">
+                                        <span class="cyan">cybersecurity_sentinel</span>
+                                    </p>
+                                    <p class="type-line line-3">
+                                        <span class="green">$</span> cat mission.txt
+                                    </p>
+                                    <p class="type-line line-4">
+                                        <span class="yellow">[+]</span> Name: <span class="white">Your Name</span>
+                                    </p>
+                                    <p class="type-line line-5">
+                                        <span class="yellow">[+]</span> Title: <span class="white">Cybersecurity Specialist</span>
+                                    </p>
+                                    <p class="type-line line-6">
+                                        <span class="yellow">[+]</span> Mission: <span class="white">"Secure the digital world"</span>
+                                    </p>
+                                    <p class="type-line line-7">
+                                        <span class="yellow">[+]</span> Status: <span class="blink green">ONLINE</span>
+                                    </p>
+                                </div>
+                                
+                                <div class="quick-navigation">
+                                    <h3><span class="cyan">Quick Navigation:</span></h3>
+                                    <div class="nav-buttons">
+                                        <button class="nav-btn" onclick="executeCommand('about')">
+                                            <i class="fas fa-user"></i> About
+                                        </button>
+                                        <button class="nav-btn" onclick="executeCommand('projects')">
+                                            <i class="fas fa-code"></i> Projects
+                                        </button>
+                                        <button class="nav-btn" onclick="executeCommand('skills')">
+                                            <i class="fas fa-chart-line"></i> Skills
+                                        </button>
+                                        <button class="nav-btn" onclick="executeCommand('lab')">
+                                            <i class="fas fa-flask"></i> Lab
+                                        </button>
+                                        <button class="nav-btn" onclick="executeCommand('game')">
+                                            <i class="fas fa-gamepad"></i> Game
+                                        </button>
+                                        <button class="nav-btn" onclick="executeCommand('contact')">
+                                            <i class="fas fa-envelope"></i> Contact
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- About Section (Hidden by default) -->
+                <section id="about" class="section-content">
+                    <!-- About content will be loaded here -->
+                </section>
+
+                <!-- Projects Section (Hidden by default) -->
+                <section id="projects" class="section-content">
+                    <!-- Projects content will be loaded here -->
+                </section>
+
+                <!-- Skills Section (Hidden by default) -->
+                <section id="skills" class="section-content">
+                    <!-- Skills content will be loaded here -->
+                </section>
+
+                <!-- Lab Section (Hidden by default) -->
+                <section id="lab" class="section-content">
+                    <!-- Lab content will be loaded here -->
+                </section>
+
+                <!-- Game Section (Hidden by default) -->
+                <section id="game" class="section-content">
+                    <!-- Game content will be loaded here -->
+                </section>
+
+                <!-- Contact Section (Hidden by default) -->
+                <section id="contact" class="section-content">
+                    <!-- Contact content will be loaded here -->
+                </section>
+
+                <!-- Help Section (Hidden by default) -->
+                <section id="help" class="section-content">
+                    <!-- Help content will be loaded here -->
+                </section>
+            </div>
+
+            <!-- Command Input Area -->
+            <div class="command-input-area">
+                <div class="command-prompt active">
+                    <span class="prompt">$</span>
+                    <input type="text" class="command-input" id="mainCommand" 
+                           placeholder="Type a command (try 'help')..." 
+                           autocomplete="off" autofocus>
+                    <span class="cursor blink">█</span>
+                </div>
+                <div class="command-hints" id="commandHints">
+                    <span class="hint">Available commands: </span>
+                    <span class="command-hint" onclick="executeCommand('help')">help</span>
+                    <span class="command-hint" onclick="executeCommand('about')">about</span>
+                    <span class="command-hint" onclick="executeCommand('projects')">projects</span>
+                    <span class="command-hint" onclick="executeCommand('skills')">skills</span>
+                    <span class="command-hint" onclick="executeCommand('lab')">lab</span>
+                </div>
+            </div>
+        </main>
+
+        <!-- Terminal Footer -->
+        <footer class="terminal-footer">
+            <div class="footer-left">
+                <span class="status-indicator green blink"></span>
+                <span>NAV_MODE: <span class="green">COMMAND</span></span>
+            </div>
+            <div class="footer-center">
+                <span id="currentPage">HOME</span>
+                <span class="separator">|</span>
+                <span id="totalCommands">Commands: <span class="cyan">0</span></span>
+            </div>
+            <div class="footer-right">
+                <span>SECTION: <span id="currentSection">1/7</span></span>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Content Templates (Hidden) -->
+    <div id="contentTemplates" style="display: none;">
+        <!-- About Template -->
+        <div id="aboutTemplate">
+            <div class="section-terminal">
+                <div class="window-header">
+                    <div class="window-title">
+                        <i class="fas fa-user-secret"></i>
+                        ABOUT_SECTION
+                    </div>
+                    <div class="window-status">
+                        <span class="status-dot cyan"></span>
+                        <span>ACTIVE</span>
+                    </div>
+                </div>
+                <div class="window-body">
+                    <h2><span class="green">>></span> MISSION & VISION</h2>
+                    <div class="content-grid">
+                        <div class="content-column">
+                            <h3><span class="cyan"># My Mission</span></h3>
+                            <p>
+                                <span class="green">></span> To democratize cybersecurity knowledge and bring 
+                                <span class="yellow">EVERYONE</span> safely into the digital world.
+                            </p>
+                            <p>
+                                <span class="green">></span> Building accessible tools and educational resources 
+                                that make security understandable for all skill levels.
+                            </p>
+                            
+                            <div class="mission-card">
+                                <h4><span class="yellow">## The Cybersecurity Game</span></h4>
+                                <p>A progressive learning game where:</p>
+                                <ul class="cyber-list">
+                                    <li><span class="green">[EASY]</span> Basic security concepts</li>
+                                    <li><span class="cyan">[MEDIUM]</span> Network defense fundamentals</li>
+                                    <li><span class="yellow">[HARD]</span> Penetration testing methods</li>
+                                    <li><span class="red">[EXPERT]</span> Real exploit development</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="content-column">
+                            <h3><span class="cyan"># Current Focus</span></h3>
+                            <div class="focus-items">
+                                <div class="focus-item">
+                                    <div class="focus-icon">
+                                        <i class="fas fa-network-wired"></i>
+                                    </div>
+                                    <div class="focus-content">
+                                        <h4>Network Security</h4>
+                                        <p>Studying protocols, firewalls, and intrusion detection</p>
+                                    </div>
+                                </div>
+                                <div class="focus-item">
+                                    <div class="focus-icon">
+                                        <i class="fas fa-code"></i>
+                                    </div>
+                                    <div class="focus-content">
+                                        <h4>Secure Coding</h4>
+                                        <p>Writing safe C/C++ and web applications</p>
+                                    </div>
+                                </div>
+                                <div class="focus-item">
+                                    <div class="focus-icon">
+                                        <i class="fas fa-shield-alt"></i>
+                                    </div>
+                                    <div class="focus-content">
+                                        <h4>Web Security</h4>
+                                        <p>Understanding vulnerabilities and defenses</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="navigation-commands">
+                        <h4><span class="yellow">Navigation:</span></h4>
+                        <div class="command-buttons">
+                            <button class="cmd-btn" onclick="executeCommand('skills')">
+                                <i class="fas fa-arrow-right"></i> Next: Skills
+                            </button>
+                            <button class="cmd-btn" onclick="executeCommand('home')">
+                                <i class="fas fa-home"></i> Home
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Skills Template -->
+        <div id="skillsTemplate">
+            <div class="section-terminal">
+                <div class="window-header">
+                    <div class="window-title">
+                        <i class="fas fa-chart-line"></i>
+                        SKILLS_MATRIX
+                    </div>
+                    <div class="window-status">
+                        <span class="status-dot yellow"></span>
+                        <span>UPDATING</span>
+                    </div>
+                </div>
+                <div class="window-body">
+                    <h2><span class="green">>></span> TECHNICAL SKILLS PROGRESS</h2>
+                    
+                    <div class="skills-matrix">
+                        <div class="skill-category">
+                            <h3><span class="cyan"># Core Cybersecurity</span></h3>
+                            <div class="skill-item">
+                                <span class="skill-name">Networking</span>
+                                <div class="skill-visual">
+                                    <div class="skill-bar">
+                                        <div class="skill-level" data-level="40" style="width: 40%">
+                                            <span class="skill-value">40%</span>
+                                        </div>
+                                    </div>
+                                    <span class="skill-percent">40%</span>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-name">Linux Administration</span>
+                                <div class="skill-visual">
+                                    <div class="skill-bar">
+                                        <div class="skill-level" data-level="70" style="width: 70%">
+                                            <span class="skill-value">50%</span>
+                                        </div>
+                                    </div>
+                                    <span class="skill-percent">50%</span>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-name">C Programming</span>
+                                <div class="skill-visual">
+                                    <div class="skill-bar">
+                                        <div class="skill-level" data-level="60" style="width: 60%">
+                                            <span class="skill-value">60%</span>
+                                        </div>
+                                    </div>
+                                    <span class="skill-percent">60%</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-category">
+                            <h3><span class="cyan"># Web & Development</span></h3>
+                            <div class="skill-item">
+                                <span class="skill-name">Web Vulnerabilities</span>
+                                <div class="skill-visual">
+                                    <div class="skill-bar">
+                                        <div class="skill-level" data-level="30" style="width: 30%">
+                                            <span class="skill-value">40%</span>
+                                        </div>
+                                    </div>
+                                    <span class="skill-percent">40%</span>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-name">Web Development</span>
+                                <div class="skill-visual">
+                                    <div class="skill-bar">
+                                        <div class="skill-level" data-level="50" style="width: 50%">
+                                            <span class="skill-value">50%</span>
+                                        </div>
+                                    </div>
+                                    <span class="skill-percent">50%</span>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-name">JavaScript</span>
+                                <div class="skill-visual">
+                                    <div class="skill-bar">
+                                        <div class="skill-level" data-level="65" style="width: 65%">
+                                            <span class="skill-value">45%</span>
+                                        </div>
+                                    </div>
+                                    <span class="skill-percent">45%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-icons">
+                        <div class="skill-icon" title="Linux">
+                            <i class="fab fa-linux"></i>
+                        </div>
+                        <div class="skill-icon" title="Networking">
+                            <i class="fas fa-network-wired"></i>
+                        </div>
+                        <div class="skill-icon" title="C Programming">
+                            <i class="fas fa-c"></i>
+                        </div>
+                        <div class="skill-icon" title="Web Security">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div class="skill-icon" title="JavaScript">
+                            <i class="fab fa-js"></i>
+                        </div>
+                        <div class="skill-icon" title="Git">
+                            <i class="fab fa-git-alt"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="navigation-commands">
+                        <h4><span class="yellow">Navigation:</span></h4>
+                        <div class="command-buttons">
+                            <button class="cmd-btn" onclick="executeCommand('projects')">
+                                <i class="fas fa-arrow-right"></i> Next: Projects
+                            </button>
+                            <button class="cmd-btn" onclick="executeCommand('about')">
+                                <i class="fas fa-arrow-left"></i> Back: About
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Projects Template -->
+        <div id="projectsTemplate">
+            <div class="section-terminal">
+                <div class="window-header">
+                    <div class="window-title">
+                        <i class="fas fa-code-branch"></i>
+                        PROJECTS_DIRECTORY
+                    </div>
+                    <div class="window-status">
+                        <span class="status-dot green blink"></span>
+                        <span>ACTIVE</span>
+                    </div>
+                </div>
+                <div class="window-body">
+                    <h2><span class="green">>></span> ACTIVE PROJECTS & TOOLS</h2>
+                    
+                    <div class="projects-grid">
+                        <!-- Game Project -->
+                        <div class="project-card featured">
+                            <div class="project-header">
+                                <h3><i class="fas fa-gamepad"></i> CYBERSECURITY_GAME</h3>
+                                <span class="project-status blinking">IN_DEVELOPMENT</span>
+                            </div>
+                            <div class="project-body">
+                                <p class="project-desc">
+                                    <span class="green">></span> A progressive learning game teaching cybersecurity 
+                                    from basic concepts to advanced penetration testing.
+                                </p>
+                                <div class="project-details">
+                                    <h4><span class="cyan">Features:</span></h4>
+                                    <ul class="cyber-list">
+                                        <li>Scaling difficulty system</li>
+                                        <li>Real-world security scenarios</li>
+                                        <li>Interactive terminal challenges</li>
+                                        <li>Educational progression</li>
+                                    </ul>
+                                    
+                                    <h4><span class="cyan">Tech Stack:</span></h4>
+                                    <div class="tech-tags">
+                                        <span class="tech-tag">C++</span>
+                                        <span class="tech-tag">SDL2</span>
+                                        <span class="tech-tag">WebAssembly</span>
+                                        <span class="tech-tag">Linux</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="project-actions">
+                                <button class="project-btn" onclick="viewProjectDemo()">
+                                    <i class="fas fa-eye"></i> View Demo
+                                </button>
+                                <button class="project-btn" onclick="openRepo('game')">
+                                    <i class="fab fa-github"></i> Code
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- Network Scanner -->
+                        <div class="project-card">
+                            <div class="project-header">
+                                <h3><i class="fas fa-search"></i> NETWORK_SCANNER</h3>
+                                <span class="project-status">COMPLETED</span>
+                            </div>
+                            <div class="project-body">
+                                <p class="project-desc">
+                                    <span class="green">></span> Python-based network security tool for 
+                                    vulnerability scanning and analysis.
+                                </p>
+                                <div class="tech-tags">
+                                    <span class="tech-tag">Python</span>
+                                    <span class="tech-tag">Scapy</span>
+                                    <span class="tech-tag">Nmap</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Web Vuln Lab -->
+                        <div class="project-card">
+                            <div class="project-header">
+                                <h3><i class="fas fa-flask"></i> WEB_VULN_LAB</h3>
+                                <span class="project-status">ACTIVE</span>
+                            </div>
+                            <div class="project-body">
+                                <p class="project-desc">
+                                    <span class="green">></span> Dockerized vulnerable web applications 
+                                    for educational security testing.
+                                </p>
+                                <div class="tech-tags">
+                                    <span class="tech-tag">Docker</span>
+                                    <span class="tech-tag">PHP</span>
+                                    <span class="tech-tag">MySQL</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="navigation-commands">
+                        <h4><span class="yellow">Navigation:</span></h4>
+                        <div class="command-buttons">
+                            <button class="cmd-btn" onclick="executeCommand('lab')">
+                                <i class="fas fa-arrow-right"></i> Next: Lab
+                            </button>
+                            <button class="cmd-btn" onclick="executeCommand('skills')">
+                                <i class="fas fa-arrow-left"></i> Back: Skills
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Lab Template -->
+        <div id="labTemplate">
+            <div class="section-terminal">
+                <div class="window-header">
+                    <div class="window-title">
+                        <i class="fas fa-flask"></i>
+                        INTERACTIVE_CYBER_LAB
+                    </div>
+                    <div class="window-status">
+                        <span class="status-dot green"></span>
+                        <span>CONNECTED</span>
+                    </div>
+                </div>
+                <div class="window-body">
+                    <h2><span class="green">>></span> INTERACTIVE SECURITY CHALLENGES</h2>
+                    
+                    <div class="lab-interface">
+                        <div class="lab-output" id="labOutput">
+                            <div class="welcome-message">
+                                <p class="cyan">Welcome to the Interactive Cybersecurity Lab!</p>
+                                <p>Try these commands:</p>
+                                <div class="command-suggestions">
+                                    <div class="cmd-suggestion" onclick="runLabCommand('scan')">
+                                        <span class="cmd">scan</span>
+                                        <span class="desc">- Simulate network scan</span>
+                                    </div>
+                                    <div class="cmd-suggestion" onclick="runLabCommand('hash test')">
+                                        <span class="cmd">hash [text]</span>
+                                        <span class="desc">- Generate hashes</span>
+                                    </div>
+                                    <div class="cmd-suggestion" onclick="runLabCommand('vuln')">
+                                        <span class="cmd">vuln</span>
+                                        <span class="desc">- List vulnerabilities</span>
+                                    </div>
+                                    <div class="cmd-suggestion" onclick="runLabCommand('help')">
+                                        <span class="cmd">help</span>
+                                        <span class="desc">- Show all commands</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="lab-history" id="labHistory"></div>
+                            <div class="lab-prompt">
+                                <span class="prompt">lab$</span>
+                                <span id="labCommandDisplay"></span>
+                                <span class="cursor blink">█</span>
+                            </div>
+                        </div>
+                        
+                        <div class="lab-controls">
+                            <input type="text" class="lab-input" id="labInput" 
+                                   placeholder="Enter lab command..." onkeypress="handleLabKeyPress(event)">
+                            <button class="lab-btn" onclick="runLabCommand()">
+                                <i class="fas fa-play"></i> Execute
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="lab-challenges">
+                        <h4><span class="yellow">Quick Challenges:</span></h4>
+                        <div class="challenge-grid">
+                            <div class="challenge-card" onclick="startChallenge(1)">
+                                <h5>Password Cracking</h5>
+                                <p>Try to crack a weak password</p>
+                                <span class="difficulty easy">EASY</span>
+                            </div>
+                            <div class="challenge-card" onclick="startChallenge(2)">
+                                <h5>Port Scanning</h5>
+                                <p>Identify vulnerable ports</p>
+                                <span class="difficulty medium">MEDIUM</span>
+                            </div>
+                            <div class="challenge-card" onclick="startChallenge(3)">
+                                <h5>SQL Injection</h5>
+                                <p>Simulated SQLi attack</p>
+                                <span class="difficulty hard">HARD</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="navigation-commands">
+                        <h4><span class="yellow">Navigation:</span></h4>
+                        <div class="command-buttons">
+                            <button class="cmd-btn" onclick="executeCommand('game')">
+                                <i class="fas fa-arrow-right"></i> Next: Game
+                            </button>
+                            <button class="cmd-btn" onclick="executeCommand('projects')">
+                                <i class="fas fa-arrow-left"></i> Back: Projects
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Game Template -->
+        <div id="gameTemplate">
+            <div class="section-terminal">
+                <div class="window-header">
+                    <div class="window-title">
+                        <i class="fas fa-gamepad"></i>
+                        CYBERSECURITY_GAME_DEMO
+                    </div>
+                    <div class="window-status">
+                        <span class="status-dot purple blink"></span>
+                        <span>DEMO_MODE</span>
+                    </div>
+                </div>
+                <div class="window-body">
+                    <h2><span class="green">>></span> GAME PROTOTYPE PREVIEW</h2>
+                    
+                    <div class="game-interface">
+                        <div class="game-controls">
+                            <div class="game-header">
+                                <h3>Cyber Realm - Security Simulator</h3>
+                                <div class="game-mode">
+                                    <select id="gameDifficulty" class="game-select">
+                                        <option value="easy">EASY - Basic Security</option>
+                                        <option value="medium">MEDIUM - Network Defense</option>
+                                        <option value="hard">HARD - Penetration Testing</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="game-stats">
+                                <div class="stat">
+                                    <span class="stat-label">Security Level</span>
+                                    <div class="stat-bar">
+                                        <div class="stat-fill" id="securityStat" style="width: 30%"></div>
+                                    </div>
+                                    <span class="stat-value" id="securityValue">30%</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-label">Knowledge</span>
+                                    <div class="stat-bar">
+                                        <div class="stat-fill" id="knowledgeStat" style="width: 10%"></div>
+                                    </div>
+                                    <span class="stat-value" id="knowledgeValue">10%</span>
+                                </div>
+                            </div>
+                            
+                            <div class="game-actions">
+                                <button class="game-action-btn" onclick="gameAction('firewall')">
+                                    <i class="fas fa-shield-alt"></i>
+                                    Setup Firewall
+                                </button>
+                                <button class="game-action-btn" onclick="gameAction('scan')">
+                                    <i class="fas fa-search"></i>
+                                    Scan Network
+                                </button>
+                                <button class="game-action-btn" onclick="gameAction('patch')">
+                                    <i class="fas fa-wrench"></i>
+                                    Patch Vulnerabilities
+                                </button>
+                                <button class="game-action-btn" onclick="gameAction('encrypt')">
+                                    <i class="fas fa-lock"></i>
+                                    Encrypt Data
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="game-visual">
+                            <div class="network-diagram">
+                                <div class="network-node server" id="gameServer">
+                                    <i class="fas fa-server"></i>
+                                    <span class="node-label">SERVER</span>
+                                    <span class="node-status" id="serverStatus">VULNERABLE</span>
+                                </div>
+                                <div class="network-node firewall" id="gameFirewall">
+                                    <i class="fas fa-shield-alt"></i>
+                                    <span class="node-label">FIREWALL</span>
+                                    <span class="node-status" id="firewallStatus">OFFLINE</span>
+                                </div>
+                                <div class="network-node attacker" id="gameAttacker">
+                                    <i class="fas fa-skull-crossbones"></i>
+                                    <span class="node-label">ATTACKER</span>
+                                    <span class="node-status" id="attackerStatus">SCANNING</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="game-log">
+                        <div class="log-header">
+                            <h4><i class="fas fa-scroll"></i> Game Log</h4>
+                        </div>
+                        <div class="log-content" id="gameLog">
+                            <p>> Game initialized. Select actions to secure the server.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="navigation-commands">
+                        <h4><span class="yellow">Navigation:</span></h4>
+                        <div class="command-buttons">
+                            <button class="cmd-btn" onclick="executeCommand('contact')">
+                                <i class="fas fa-arrow-right"></i> Next: Contact
+                            </button>
+                            <button class="cmd-btn" onclick="executeCommand('lab')">
+                                <i class="fas fa-arrow-left"></i> Back: Lab
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Template -->
+        <div id="contactTemplate">
+            <div class="section-terminal">
+                <div class="window-header">
+                    <div class="window-title">
+                        <i class="fas fa-envelope"></i>
+                        CONTACT_PROTOCOL
+                    </div>
+                    <div class="window-status">
+                        <span class="status-dot cyan"></span>
+                        <span>ENCRYPTED</span>
+                    </div>
+                </div>
+                <div class="window-body">
+                    <h2><span class="green">>></span> SECURE COMMUNICATION CHANNELS</h2>
+                    
+                    <div class="contact-grid">
+                        <div class="contact-methods">
+                            <div class="contact-method">
+                                <div class="method-icon">
+                                    <i class="fab fa-github"></i>
+                                </div>
+                                <div class="method-content">
+                                    <h4>GITHUB</h4>
+                                    <p>Code repositories and projects</p>
+                                    <button class="method-btn" onclick="openGithub()">
+                                        Visit Profile
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-method">
+                                <div class="method-icon">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div class="method-content">
+                                    <h4>ENCRYPTED EMAIL</h4>
+                                    <p>Standard secure communication</p>
+                                    <button class="method-btn" onclick="sendEmail()">
+                                        Compose Email
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-form">
+                            <h4><span class="cyan">Send Secure Message:</span></h4>
+                            <form id="contactForm">
+                                <div class="form-group">
+                                    <label for="contactName">Name:</label>
+                                    <input type="text" id="contactName" class="form-input" 
+                                           placeholder="Your name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="contactEmail">Email:</label>
+                                    <input type="email" id="contactEmail" class="form-input" 
+                                           placeholder="your.email@example.com" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="contactMessage">Message:</label>
+                                    <textarea id="contactMessage" class="form-textarea" 
+                                              rows="4" placeholder="Your secure message..." required></textarea>
+                                </div>
+                                <div class="form-options">
+                                    <label class="checkbox">
+                                        <input type="checkbox" id="encryptToggle">
+                                        <span>Encrypt with PGP</span>
+                                    </label>
+                                </div>
+                                <button type="button" class="submit-btn" onclick="sendSecureMessage()">
+                                    <i class="fas fa-paper-plane"></i>
+                                    Send Secure Message
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                    
+                    <div class="navigation-commands">
+                        <h4><span class="yellow">Navigation:</span></h4>
+                        <div class="command-buttons">
+                            <button class="cmd-btn" onclick="executeCommand('home')">
+                                <i class="fas fa-home"></i> Return Home
+                            </button>
+                            <button class="cmd-btn" onclick="executeCommand('game')">
+                                <i class="fas fa-arrow-left"></i> Back: Game
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Help Template -->
+        <div id="helpTemplate">
+            <div class="section-terminal">
+                <div class="window-header">
+                    <div class="window-title">
+                        <i class="fas fa-question-circle"></i>
+                        HELP_COMMANDS
+                    </div>
+                    <div class="window-status">
+                        <span class="status-dot yellow"></span>
+                        <span>ACTIVE</span>
+                    </div>
+                </div>
+                <div class="window-body">
+                    <h2><span class="green">>></span> COMMAND REFERENCE</h2>
+                    
+                    <div class="help-content">
+                        <div class="command-category">
+                            <h3><span class="cyan"># Navigation Commands</span></h3>
+                            <div class="command-list">
+                                <div class="command-item">
+                                    <span class="cmd">home</span>
+                                    <span class="desc">- Go to home section</span>
+                                </div>
+                                <div class="command-item">
+                                    <span class="cmd">about</span>
+                                    <span class="desc">- View mission and about information</span>
+                                </div>
+                                <div class="command-item">
+                                    <span class="cmd">skills</span>
+                                    <span class="desc">- View technical skills matrix</span>
+                                </div>
+                                <div class="command-item">
+                                    <span class="cmd">projects</span>
+                                    <span class="desc">- View active projects</span>
+                                </div>
+                                <div class="command-item">
+                                    <span class="cmd">lab</span>
+                                    <span class="desc">- Access interactive cybersecurity lab</span>
+                                </div>
+                                <div class="command-item">
+                                    <span class="cmd">game</span>
+                                    <span class="desc">- View cybersecurity game demo</span>
+                                </div>
+                                <div class="command-item">
+                                    <span class="cmd">contact</span>
+                                    <span class="desc">- View contact information</span>
+                                </div>
+                                <div class="command-item">
+                                    <span class="cmd">clear</span>
+                                    <span class="desc">- Clear command history</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="command-category">
+                            <h3><span class="cyan"># System Commands</span></h3>
+                            <div class="command-list">
+                                <div class="command-item">
+                                    <span class="cmd">help</span>
+                                    <span class="desc">- Show this help message</span>
+                                </div>
+                                <div class="command-item">
+                                    <span class="cmd">status</span>
+                                    <span class="desc">- Show system status</span>
+                                </div>
+                                <div class="command-item">
+                                    <span class="cmd">theme [dark/light]</span>
+                                    <span class="desc">- Change theme</span>
+                                </div>
+                                <div class="command-item">
+                                    <span class="cmd">export</span>
+                                    <span class="desc">- Export portfolio data</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="command-category">
+                            <h3><span class="cyan"># Lab Commands</span></h3>
+                            <div class="command-list">
+                                <div class="command-item">
+                                    <span class="cmd">scan</span>
+                                    <span class="desc">- Simulate network scan</span>
+                                </div>
+                                <div class="command-item">
+                                    <span class="cmd">hash [text]</span>
+                                    <span class="desc">- Generate hashes</span>
+                                </div>
+                                <div class="command-item">
+                                    <span class="cmd">vuln</span>
+                                    <span class="desc">- List vulnerabilities</span>
+                                </div>
+                                <div class="command-item">
+                                    <span class="cmd">cipher [text] [shift]</span>
+                                    <span class="desc">- Encrypt/decrypt with Caesar cipher</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="quick-tips">
+                        <h4><span class="yellow">Quick Tips:</span></h4>
+                        <ul>
+                            <li>Type commands in lowercase</li>
+                            <li>Press <span class="cyan">Tab</span> for autocomplete</li>
+                            <li>Press <span class="cyan">↑/↓</span> for command history</li>
+                            <li>Click command hints for quick navigation</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="navigation-commands">
+                        <button class="cmd-btn" onclick="executeCommand('home')">
+                            <i class="fas fa-home"></i> Return to Home
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
