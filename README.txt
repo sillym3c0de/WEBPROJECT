@@ -1,0 +1,1 @@
+this is a web project that ill keep on adding new features on and would like to add 3D features in the future aswell as some better animation and keep my progress updated on the web every 6 months to a year changing my skills and project and upcoming ideas 
